@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.equalBtn.setOnClickListener{
+            rollDice()
             updateUi()
         }
     }
@@ -31,9 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateUi() {
         binding.lastThrowTv.text = getString(R.string.last_throw, lastThrow)
-        var imageName = "R.drawable.dice"
-        imageName += lastThrow
-        binding.diceRollIv.setImageResource(resources.getIdentifier(imageName, "drawable", packageName))
+        binding.diceRollIv.setImageResource(resources.getIdentifier(getString(R.string.get_image, currentThrow), "drawable", packageName))
     }
 
     private fun rollDice(){
@@ -41,6 +40,15 @@ class MainActivity : AppCompatActivity() {
         currentThrow = (1..6).random()
         updateUi()
     }
+
+    private fun onAnswerCorrect(){
+        Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_LONG)
+    }
+    private fun onAnswerIncorrect(){
+        Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_LONG)
+    }
+
+
 
 
 }
