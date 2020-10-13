@@ -19,14 +19,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHigherLowerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initViews()
 
-        binding.equalBtn.setOnClickListener{
-            rollDice()
-            updateUi()
-        }
     }
 
     private fun initViews(){
+        binding.higherBtn.setOnClickListener{
+            onHigherClick()
+        }
+
+        binding.equalBtn.setOnClickListener{
+            onEqualClick()
+        }
+
+        binding.lowerBtn.setOnClickListener{
+            onLowerClick()
+        }
+
         updateUi()
     }
 
@@ -42,13 +51,37 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onAnswerCorrect(){
-        Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_LONG)
+        Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_LONG).show()
     }
     private fun onAnswerIncorrect(){
-        Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_LONG)
+        Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_LONG).show()
     }
 
+    private fun onHigherClick(){
+        rollDice()
+        if(currentThrow>lastThrow){
+            onAnswerCorrect()
+        } else {
+            onAnswerIncorrect()
+        }
+    }
 
+    private fun onEqualClick(){
+        rollDice()
+        if(currentThrow == lastThrow){
+            onAnswerCorrect()
+        } else {
+            onAnswerIncorrect()
+        }
+    }
 
+    private fun onLowerClick(){
+        rollDice()
+        if(currentThrow<lastThrow){
+            onAnswerCorrect()
+        } else {
+            onAnswerIncorrect()
+        }
+    }
 
 }
