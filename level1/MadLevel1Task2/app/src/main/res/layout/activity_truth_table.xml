@@ -82,11 +82,12 @@
         android:id="@+id/first_ev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="4"
+        android:minEms="4"
         app:layout_constraintStart_toEndOf="@id/t2_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/a_b_tv"
         app:layout_constraintBottom_toTopOf="@id/f1_tv"
+        android:maxLength="1"
 
         />
 
@@ -117,12 +118,12 @@
         android:id="@+id/second_ev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="1"
         app:layout_constraintBottom_toTopOf="@+id/t4_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/f1_tv"
         app:layout_constraintTop_toBottomOf="@+id/t2_tv"
         android:minEms="4"
+        android:maxLength="1"
 
         />
 
@@ -159,6 +160,7 @@
         app:layout_constraintStart_toEndOf="@id/t4_tv"
         app:layout_constraintTop_toBottomOf="@+id/f1_tv"
         android:minEms="4"
+        android:maxLength="1"
 
         />
 
@@ -195,6 +197,7 @@
         app:layout_constraintStart_toEndOf="@id/f4_tv"
         app:layout_constraintTop_toBottomOf="@+id/t4_tv"
         android:minEms="4"
+        android:maxLength="1"
         />
 
     <Button
