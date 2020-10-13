@@ -6,13 +6,173 @@
     android:layout_height="match_parent"
     tools:context=".TruthTableActivity">
 
+
     <TextView
+        android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/b_tv"
+        android:text="@string/top_title"
+        android:textSize="24dp"
+        />
+    <TextView
+        android:id="@+id/a_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/b_tv"
+        app:layout_constraintTop_toBottomOf="@id/title_tv"
+        android:text="@string/A"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/t1_tv"
+        />
+    <TextView
+        android:id="@+id/b_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_tv"
+        app:layout_constraintBottom_toTopOf="@id/t2_tv"
+        android:text="@string/B"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/a_b_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/b_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_tv"
+        app:layout_constraintBottom_toTopOf="@id/t2_tv"
+        android:text="@string/A_B"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/t1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/t2_tv"
+        app:layout_constraintTop_toBottomOf="@id/a_tv"
+        app:layout_constraintBottom_toTopOf="@id/t3_tv"
+        android:text="@string/T"
+        android:textSize="24dp"
+        />
+    <TextView
+        android:id="@+id/t2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/b_tv"
+        app:layout_constraintBottom_toTopOf="@id/f1_tv"
+        android:text="@string/T"
+        android:textSize="24dp"
+        />
+
+    <EditText
+        android:id="@+id/first_ev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        app:layout_constraintStart_toEndOf="@id/t2_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_b_tv"
+        app:layout_constraintBottom_toTopOf="@id/f1_tv"
+
+        />
+
+    <TextView
+        android:id="@+id/t3_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/f1_tv"
+        app:layout_constraintTop_toBottomOf="@id/t1_tv"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        android:text="@string/T"
+        android:textSize="24dp"
+        />
+    <TextView
+        android:id="@+id/f1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/t2_tv"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        android:text="@string/F"
+        android:textSize="24dp"
+        />
+
+    <EditText
+        android:id="@+id/second_ev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="1"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/f1_tv"
+        app:layout_constraintTop_toBottomOf="@+id/first_ev"
+        android:minEms="4"
+
+        />
+
+    <TextView
+        android:id="@+id/f2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/t4_tv"
+        app:layout_constraintTop_toBottomOf="@id/t3_tv"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        android:text="@string/T"
+        android:textSize="24dp"
+        />
+    <TextView
+        android:id="@+id/t4_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/f1_tv"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        android:text="@string/F"
+        android:textSize="24dp"
+        />
+
+    <EditText
+        android:id="@+id/third_ev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="1"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/f1_tv"
+        app:layout_constraintTop_toBottomOf="@+id/first_ev"
+        android:minEms="4"
+
+        />
+
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
