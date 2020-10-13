@@ -97,7 +97,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/f1_tv"
         app:layout_constraintTop_toBottomOf="@id/t1_tv"
-        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        app:layout_constraintBottom_toTopOf="@+id/t4_tv"
         android:text="@string/T"
         android:textSize="24dp"
         />
@@ -108,7 +108,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/t2_tv"
-        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        app:layout_constraintBottom_toTopOf="@+id/t4_tv"
         android:text="@string/F"
         android:textSize="24dp"
         />
@@ -118,10 +118,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="1"
-        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        app:layout_constraintBottom_toTopOf="@+id/t4_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/f1_tv"
-        app:layout_constraintTop_toBottomOf="@+id/first_ev"
+        app:layout_constraintTop_toBottomOf="@+id/t2_tv"
         android:minEms="4"
 
         />
@@ -133,8 +133,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/t4_tv"
         app:layout_constraintTop_toBottomOf="@id/t3_tv"
-        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
-        android:text="@string/T"
+        app:layout_constraintBottom_toTopOf="@+id/f3_tv"
+        android:text="@string/F"
         android:textSize="24dp"
         />
     <TextView
@@ -144,8 +144,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/f1_tv"
-        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
-        android:text="@string/F"
+        app:layout_constraintBottom_toTopOf="@+id/f4_tv"
+        android:text="@string/T"
         android:textSize="24dp"
         />
 
@@ -154,12 +154,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="1"
-        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        app:layout_constraintBottom_toTopOf="@+id/f4_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/f1_tv"
-        app:layout_constraintTop_toBottomOf="@+id/first_ev"
+        app:layout_constraintStart_toEndOf="@id/t4_tv"
+        app:layout_constraintTop_toBottomOf="@+id/f1_tv"
         android:minEms="4"
 
+        />
+
+    <TextView
+        android:id="@+id/f3_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/f4_tv"
+        app:layout_constraintTop_toBottomOf="@id/f2_tv"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        android:text="@string/F"
+        android:textSize="24dp"
+        />
+    <TextView
+        android:id="@+id/f4_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/t4_tv"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        android:text="@string/F"
+        android:textSize="24dp"
+        />
+
+    <EditText
+        android:id="@+id/fourth_ev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="1"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/f4_tv"
+        app:layout_constraintTop_toBottomOf="@+id/t4_tv"
+        android:minEms="4"
         />
 
     <Button
@@ -170,6 +205,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/t4_tv"
+        app:layout_constraintVertical_bias="0.90"
 
         />
 
