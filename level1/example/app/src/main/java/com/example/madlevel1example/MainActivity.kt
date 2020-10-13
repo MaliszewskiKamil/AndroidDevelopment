@@ -2,6 +2,7 @@ package com.example.madlevel1example
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.madlevel1example.databinding.ActivityMainBinding
 
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private fun checkAnswer() {
 
         val answer = binding.answerInput.text.toString()
-        println(answer)
+        Log.d("answer", answer)
 
         if(answer == getString(R.string.giraffe)) {
             Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_LONG).show()
