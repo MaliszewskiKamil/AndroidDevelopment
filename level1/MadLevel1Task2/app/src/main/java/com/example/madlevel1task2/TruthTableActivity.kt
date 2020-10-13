@@ -29,17 +29,27 @@ class TruthTableActivity : AppCompatActivity() {
     }
 
     private fun showToastWithPoints(){
-        Toast.makeText(this, getString(R.string.correct_answers, points), Toast.LENGTH_LONG).show()
+        when (points) {
+            4 -> {
+                Toast.makeText(this, getString(R.string.all_answer_correct, points), Toast.LENGTH_LONG).show()
+            }
+            0 -> {
+                Toast.makeText(this, getString(R.string.all_answers_wrong, points), Toast.LENGTH_LONG).show()
+            }
+            else -> {
+                Toast.makeText(this, getString(R.string.correct_answers, points), Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun checkAnswers(){
-        if(binding.firstEv.text.toString() == "T")
+        if(binding.firstEv.text.toString() == "T" || binding.firstEv.text.toString() == "t")
             points++
-        if(binding.secondEv.text.toString() == "F")
+        if(binding.secondEv.text.toString() == "F" || binding.secondEv.text.toString() == "f")
             points++
-        if(binding.thirdEv.text.toString() == "F")
+        if(binding.thirdEv.text.toString() == "F" || binding.thirdEv.text.toString() == "f")
             points++
-        if(binding.fourthEv.text.toString() == "F")
+        if(binding.fourthEv.text.toString() == "F" || binding.fourthEv.text.toString() == "f")
             points++
 
     }

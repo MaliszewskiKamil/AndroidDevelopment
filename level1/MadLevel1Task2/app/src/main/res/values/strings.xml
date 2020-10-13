@@ -8,4 +8,6 @@
     <string name="F">F</string>
     <string name="submit">SUBMIT</string>
     <string name="correct_answers">Correct answers: %d</string>
+    <string name="all_answer_correct">CONGRATULATIONS!! You have all %d answers correct!</string>
+    <string name="all_answers_wrong">Sadly, you have %d good answers, try again, you can do this!!</string>
 </resources>
