@@ -25,6 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:text="@string/subtitle"
         android:textStyle="bold"
+        android:paddingBottom="8dp"
         />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/questionsRv"

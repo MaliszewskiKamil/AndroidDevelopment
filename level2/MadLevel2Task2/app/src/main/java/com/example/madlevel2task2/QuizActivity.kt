@@ -3,6 +3,7 @@ package com.example.madlevel2task2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,11 +29,13 @@ class QuizActivity : AppCompatActivity() {
         onSwipeRight().attachToRecyclerView(binding.questionsRv)
 
         binding.questionsRv.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        binding.questionsRv.adapter = questionAdapter
 
         for(i in Question.QUESTIONS.indices){
             questions.add(Question(Question.QUESTIONS[i], Question.ANSWERS[i]))
         }
+        binding.questionsRv.adapter = questionAdapter
+
+        binding.questionsRv.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
     }
 
     private fun onSwipeLeft(): ItemTouchHelper {
