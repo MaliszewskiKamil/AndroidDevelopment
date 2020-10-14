@@ -2,6 +2,7 @@ package com.example.madlevel2task1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.madlevel2task1.adapters.PlaceAdapter
@@ -21,6 +22,8 @@ class PlacesActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+
+        binding.placesRv.adapter = placesAdapter
         binding.placesRv.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
 
         for(i in Place.PLACE_NAMES.indices) {
