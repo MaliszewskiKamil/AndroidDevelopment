@@ -12,6 +12,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="14dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
