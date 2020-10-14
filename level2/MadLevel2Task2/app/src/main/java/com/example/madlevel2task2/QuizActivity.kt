@@ -53,11 +53,10 @@ class QuizActivity : AppCompatActivity() {
                 val position = viewHolder.adapterPosition
                 if(!questions[position].questionAnswer){
                     questions.removeAt(position)
-                    questionAdapter.notifyDataSetChanged()
                 } else {
                     toastOnWrongAnswer()
-                    questionAdapter.notifyDataSetChanged()
                 }
+                questionAdapter.notifyDataSetChanged()
 
             }
 
@@ -81,11 +80,10 @@ class QuizActivity : AppCompatActivity() {
                 val position = viewHolder.adapterPosition
                 if(questions[position].questionAnswer){
                     questions.removeAt(position)
-                    questionAdapter.notifyDataSetChanged()
                 } else {
                     toastOnWrongAnswer()
-                    questionAdapter.notifyDataSetChanged()
                 }
+                questionAdapter.notifyDataSetChanged()
 
             }
 
