@@ -1,4 +1,4 @@
-package com.example.madlevel2task2
+package com.example.madlevel2task2.data
 
 data class Question(var questionText: String) {
     companion object {
