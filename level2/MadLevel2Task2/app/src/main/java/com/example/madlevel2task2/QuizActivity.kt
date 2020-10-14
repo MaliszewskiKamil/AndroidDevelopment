@@ -24,6 +24,8 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        onSwipeLeft().attachToRecyclerView(binding.questionsRv)
+        onSwipeRight().attachToRecyclerView(binding.questionsRv)
 
         binding.questionsRv.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         binding.questionsRv.adapter = questionAdapter
@@ -33,7 +35,61 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
+    private fun onSwipeLeft(): ItemTouchHelper {
 
+        val callback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                if(!questions[position].questionAnswer){
+                    questions.removeAt(position)
+                    questionAdapter.notifyDataSetChanged()
+                } else {
+                    toastOnWrongAnswer()
+                    questionAdapter.notifyDataSetChanged()
+                }
+
+            }
+
+        }
+
+        return ItemTouchHelper(callback)
+    }
+
+    private fun onSwipeRight(): ItemTouchHelper {
+
+        val callback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT){
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                if(questions[position].questionAnswer){
+                    questions.removeAt(position)
+                    questionAdapter.notifyDataSetChanged()
+                } else {
+                    toastOnWrongAnswer()
+                    questionAdapter.notifyDataSetChanged()
+                }
+
+            }
+
+        }
+
+        return ItemTouchHelper(callback)
+    }
 
     private fun toastOnWrongAnswer(){
         Toast.makeText(this, "This answer is wrong, try again", Toast.LENGTH_LONG).show()
