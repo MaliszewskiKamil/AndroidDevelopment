@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,8 +25,21 @@ class MainActivity : AppCompatActivity() {
                 R.id.action_remindersFragment_to_addReminderFragment
             )
         }
+        fabToogler()
 
 
+
+    }
+
+    private fun fabToogler(){
+         var fab: FloatingActionButton = findViewById<FloatingActionButton>(R.id.fab)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id in arrayOf(R.id.addReminderFragment)) {
+                fab.hide()
+            } else {
+                fab.show()
+            }
+        }
 
     }
 
