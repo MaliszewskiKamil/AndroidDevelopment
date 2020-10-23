@@ -12,8 +12,6 @@ import kotlinx.android.synthetic.main.fragment_rating.*
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-const val ARG_GAME_NAME = "arg_game_name"
-const val ARG_GAME_RATING = "arg_game_rating"
 class RatingFragment : Fragment() {
 
 
@@ -28,11 +26,11 @@ class RatingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showRandomAssessableGame()
         btn_summary.setOnClickListener{
             navigateToSummary()
         }
 
-        showRandomAssessableGame()
 
 
     }
@@ -51,7 +49,7 @@ class RatingFragment : Fragment() {
         args.putString(ARG_GAME_NAME, tv_rating_sub.text.toString())
 
         findNavController().navigate(
-            R.id.action_ratingFragment_to_summaryFragment
+            R.id.action_ratingFragment_to_summaryFragment, args
         )
     }
 
