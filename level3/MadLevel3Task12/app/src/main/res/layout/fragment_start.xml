@@ -15,8 +15,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         android:textSize="24sp"
         android:textColor="@color/black"
+        app:layout_constraintVertical_chainStyle="packed"
         />
     <TextView
         android:id="@+id/tvSubtitle"
@@ -26,6 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         android:textSize="14sp"
         />
     <Button
@@ -36,6 +39,7 @@
         android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
