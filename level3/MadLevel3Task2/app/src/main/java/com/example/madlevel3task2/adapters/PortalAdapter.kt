@@ -44,7 +44,6 @@ class PortalAdapter(private val portals: List<Portal>) :
         return portals.size
     }
     private fun openUrl(url: String, holder: ViewHolder){
-        var itemView: View
         var builder: CustomTabsIntent.Builder = CustomTabsIntent.Builder()
         var customTabsIntent: CustomTabsIntent = builder.build()
         customTabsIntent.launchUrl(holder.itemView.context, Uri.parse(url))
