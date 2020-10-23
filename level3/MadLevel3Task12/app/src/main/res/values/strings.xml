@@ -14,4 +14,7 @@
     <string name="welcome">Welcome to the Games Rating app!</string>
     <string name="click_start">Click START to start rating :)</string>
     <string name="start">START</string>
+    <string name="rate_title">Rate the following game from 1 to 5 starts!</string>
+    <string name="rate_sub">Shadow of the Tombraider</string>
+    <string name="to_summary">TO SUMMARY</string>
 </resources>
