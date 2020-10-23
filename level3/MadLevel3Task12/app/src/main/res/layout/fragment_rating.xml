@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
     <Button
-        android:id="@+id/btnStart"
+        android:id="@+id/btn_summary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/to_summary"
