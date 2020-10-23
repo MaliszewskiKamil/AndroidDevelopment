@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.navigation.findNavController
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,9 +15,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        val navController = findNavController(R.id.nav_host_fragment)
+        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
+                navController.navigate(
+                    R.id.action_portalsFragment_to_addPortalsFragment
+                )
         }
     }
 

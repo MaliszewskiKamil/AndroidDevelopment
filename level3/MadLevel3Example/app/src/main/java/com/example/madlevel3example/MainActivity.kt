@@ -26,9 +26,6 @@ class MainActivity : AppCompatActivity() {
             )
         }
         fabToogler()
-
-
-
     }
 
     private fun fabToogler(){
