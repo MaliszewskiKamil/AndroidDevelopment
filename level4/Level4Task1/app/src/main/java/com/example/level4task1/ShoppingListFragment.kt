@@ -68,19 +68,18 @@ class ShoppingListFragment : Fragment() {
         val amount = dialogLayout.findViewById<EditText>(R.id.txt_amount)
 
         builder.setView(dialogLayout)
-        builder.setPositiveButton(R.string.dialog_ok_btn) {
-            _:DialogInterface, _: Int ->
+        builder.setPositiveButton(R.string.dialog_ok_btn) { _: DialogInterface, _: Int ->
             addProduct(productName, amount)
         }
         builder.show()
     }
 
     private fun addProduct(productName: EditText, amount: EditText) {
-        if(validateFields(txt_product_name, txt_amount)){
+        if(validateFields(productName, amount)){
             mainScope.launch {
                 val product = Product(
-                    productName = txt_product_name.text.toString(),
-                    productQuantity = txt_amount.text.toString().toInt()
+                    productName = productName.text.toString(),
+                    productQuantity = amount.text.toString().toInt()
                 )
 
                 withContext(Dispatchers.IO){
@@ -111,6 +110,7 @@ class ShoppingListFragment : Fragment() {
         rv_shopping_list.apply {
             setHasFixedSize(true)
         }
+        createItemTouchHelper().attachToRecyclerView(rv_shopping_list)
 
 
     }

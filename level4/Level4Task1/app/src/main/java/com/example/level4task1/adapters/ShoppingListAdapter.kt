@@ -12,8 +12,8 @@ class ShoppingListAdapter(private val products: List<Product>) :
         RecyclerView.Adapter<ShoppingListAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun databind(product: Product){
-            itemView.tvProductName.text = product.productText
-            itemView.tvProductQuantity.text = product.productQuantity.toString()+"x "
+            itemView.tvProductName.text = product.productName
+            itemView.tvProductQuantity.text = product.productQuantity.toString()
         }
     }
 
