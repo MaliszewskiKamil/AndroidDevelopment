@@ -20,6 +20,7 @@ import com.example.level4task1.data.Product
 import com.example.level4task1.database.ProductRepository
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.add_product_dialog.*
 import kotlinx.android.synthetic.main.shopping_list_fragment.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -73,7 +74,24 @@ class ShoppingListFragment : Fragment() {
         builder.show()
     }
 
-    private fun addProduct(productName: EditText?, amount: EditText?) {
+    private fun addProduct(productName: EditText, amount: EditText) {
+        if(validateFields(txt_product_name, txt_amount)){
+            mainScope.launch {
+                val product = Product(
+                    productName = txt_product_name.text.toString(),
+                    productQuantity = txt_amount.text.toString().toInt()
+                )
+
+                withContext(Dispatchers.IO){
+                    productRepository.insertProduct(product)
+                }
+
+                getProductsFromDatabase()
+            }
+        }
+    }
+
+    private fun validateFields(txtProductName: EditText?, txtAmount: EditText?): Boolean {
         TODO("Not yet implemented")
     }
 
