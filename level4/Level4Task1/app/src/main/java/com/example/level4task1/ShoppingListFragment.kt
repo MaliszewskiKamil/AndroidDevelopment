@@ -1,11 +1,15 @@
 package com.example.level4task1
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -45,10 +49,32 @@ class ShoppingListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         productRepository = ProductRepository(requireContext())
-
-
+        getProductsFromDatabase()
         initRv()
+        fab_add.setOnClickListener{
+            showAddProductDialog();
+        }
 
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showAddProductDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(getString(R.string.add_product_dialog_title))
+        val dialogLayout = layoutInflater.inflate(R.layout.add_product_dialog, null)
+        val productName = dialogLayout.findViewById<EditText>(R.id.txt_product_name)
+        val amount = dialogLayout.findViewById<EditText>(R.id.txt_amount)
+
+        builder.setView(dialogLayout)
+        builder.setPositiveButton(R.string.dialog_ok_btn) {
+            _:DialogInterface, _: Int ->
+            addProduct(productName, amount)
+        }
+        builder.show()
+    }
+
+    private fun addProduct(productName: EditText?, amount: EditText?) {
+        TODO("Not yet implemented")
     }
 
 
