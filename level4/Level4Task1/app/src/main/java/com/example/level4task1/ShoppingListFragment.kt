@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -91,8 +92,15 @@ class ShoppingListFragment : Fragment() {
         }
     }
 
-    private fun validateFields(txtProductName: EditText?, txtAmount: EditText?): Boolean {
-        TODO("Not yet implemented")
+    private fun validateFields(txtProductName: EditText, txtAmount: EditText): Boolean {
+        return if (txtProductName.text.toString().isNotBlank()
+            && txtAmount.text.toString().isNotBlank()
+        ) {
+            true
+        } else {
+            Toast.makeText(activity, "Please fill in the fields", Toast.LENGTH_LONG).show()
+                false
+        }
     }
 
 
