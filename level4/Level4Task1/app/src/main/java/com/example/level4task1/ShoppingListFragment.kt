@@ -128,10 +128,10 @@ class ShoppingListFragment : Fragment() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
                 val productToDelete = products[position]
-                CoroutineScope(Dispatchers.Main).launch {
-                    val reminders = withContext(Dispatchers.IO) {
+                mainScope.launch {
+                    withContext(Dispatchers.IO) {
                         productRepository.deleteProduct(productToDelete)
-                    }
+                }
                     getProductsFromDatabase()
                 }
             }
@@ -142,12 +142,12 @@ class ShoppingListFragment : Fragment() {
 
     private fun getProductsFromDatabase() {
         mainScope.launch {
-            val shoppingList = withContext(Dispatchers.IO) {
+            val products = withContext(Dispatchers.IO) {
                 productRepository.getAllProducts()
             }
             this@ShoppingListFragment.products.clear()
             this@ShoppingListFragment.products.addAll(products)
-            this@ShoppingListFragment.shoppingListAdapter.notifyDataSetChanged()
+            shoppingListAdapter.notifyDataSetChanged()
         }
     }
 }
