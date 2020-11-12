@@ -60,7 +60,7 @@ class RemindersFragment : Fragment() {
 
     private fun observeAddReminderResults(){
         setFragmentResultListener(REQ_REMINDER_KEY) {
-            key, bundle -> bundle.getString(BUNDLE_REMINDER_KEY)?.let {
+            _, bundle -> bundle.getString(BUNDLE_REMINDER_KEY)?.let {
             val reminder = Reminder(it)
 
             reminderRepository.insertReminder(reminder)
@@ -81,8 +81,9 @@ class RemindersFragment : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
-                reminders.removeAt(position)
-                reminderAdapter.notifyDataSetChanged()
+                val reminderToDelete = reminders[position]
+                reminderRepository.deleteReminder(reminderToDelete)
+                getRemindersFromDatabase()
             }
 
         }

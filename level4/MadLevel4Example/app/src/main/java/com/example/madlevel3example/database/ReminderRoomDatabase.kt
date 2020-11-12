@@ -28,7 +28,6 @@ abstract class ReminderRoomDatabase: RoomDatabase() {
                             ReminderRoomDatabase::class.java,
                             DATABASE_NAME
                         )
-                            .allowMainThreadQueries()
                             .build()
                     }
                 }
