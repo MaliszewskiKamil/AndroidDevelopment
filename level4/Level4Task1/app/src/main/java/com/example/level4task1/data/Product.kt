@@ -9,6 +9,9 @@ data class Product (
     @ColumnInfo
     var productText: String,
 
+    @ColumnInfo
+    var productQuantity: Integer,
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="id")
     var id: Long? = null
