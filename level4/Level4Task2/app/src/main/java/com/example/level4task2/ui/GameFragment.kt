@@ -63,7 +63,7 @@ class GameFragment : Fragment() {
     private fun onScissorsClick(){
         ivPlayerImage.setImageResource(R.drawable.scissors)
         val results = checkResults(R.drawable.rock, computerChoose())
-        tv
+
     }
 
     private fun checkResults(player: Int, computer: Int) : String{
