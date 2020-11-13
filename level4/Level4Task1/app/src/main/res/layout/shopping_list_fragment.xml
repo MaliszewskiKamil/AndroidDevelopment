@@ -21,11 +21,12 @@
         android:layout_height="wrap_content"
 
         android:layout_margin="@dimen/fab_margin"
-        app:layout_constraintEnd_toStartOf="@id/fab_delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"
-        android:backgroundTint="@color/green"/>
+        android:backgroundTint="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_delete"
@@ -33,9 +34,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/fab_add"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_menu_delete"
-        android:backgroundTint="@color/red"/>
+        android:layout_gravity="bottom|center"
+        android:backgroundTint="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.63"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
