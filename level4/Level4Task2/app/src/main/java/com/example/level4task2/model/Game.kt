@@ -12,13 +12,17 @@ import java.util.*
 data class Game (
 
     @ColumnInfo
+    var result: String,
+
+    @ColumnInfo
     @DrawableRes var playerChoice: Int,
 
     @ColumnInfo
     @DrawableRes var computerChoice: Int,
 
     @ColumnInfo
-    var gameDate: Date,
+    var gameDate: Date?,
+
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="id")

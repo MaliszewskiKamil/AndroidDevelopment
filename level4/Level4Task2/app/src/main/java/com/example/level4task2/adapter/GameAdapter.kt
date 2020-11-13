@@ -4,11 +4,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.level4task2.model.Game
+import kotlinx.android.synthetic.main.item_history.view.*
 
 class GameAdapter (private val games: List<Game>):
         RecyclerView.Adapter<GameAdapter.ViewHolder>(){
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun databind(game: Game){
+            itemView.tvCardTitle.text = game.result
+            itemView.tvCardDate.text = game.gameDate.toString()
+            itemView.ivCardComputerImage.setImageResource(game.computerChoice)
+            itemView.ivCardPlayerImage.setImageResource(game.playerChoice)
 
         }
     }
