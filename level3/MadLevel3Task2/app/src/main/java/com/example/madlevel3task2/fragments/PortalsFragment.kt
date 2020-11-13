@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.setFragmentResultListener
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -30,7 +31,9 @@ class PortalsFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        //fab.visibility = View.VISIBLE
         return inflater.inflate(R.layout.fragment_portals, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,6 +68,11 @@ class PortalsFragment : Fragment() {
     private fun initViews() {
         rvPortals.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         rvPortals.adapter = portalsAdapter
+
+        fab.setOnClickListener {
+            findNavController().navigate(R.id.action_portalsFragment_to_addPortalsFragment)
+        }
+
 
     }
 

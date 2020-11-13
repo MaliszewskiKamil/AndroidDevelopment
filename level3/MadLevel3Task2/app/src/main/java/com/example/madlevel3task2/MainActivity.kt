@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.navigation.findNavController
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +17,13 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         val navController = findNavController(R.id.nav_host_fragment)
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
-                navController.navigate(
-                    R.id.action_portalsFragment_to_addPortalsFragment
-                )
-        }
+
+
+
     }
+
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

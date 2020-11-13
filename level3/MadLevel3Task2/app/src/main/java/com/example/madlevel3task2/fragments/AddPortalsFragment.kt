@@ -9,11 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.example.madlevel3task2.R
 import com.example.madlevel3task2.data.Portal
 import com.example.madlevel3task2.fragments.PortalsFragment.Companion.PORTAL_EXTRA
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_add_portals.*
 import kotlinx.android.synthetic.main.item_portal.*
 
@@ -64,8 +66,11 @@ class AddPortalsFragment : Fragment() {
         } else {
             Toast.makeText(context, "Fields cannot be blank", Toast.LENGTH_LONG).show()
         }
+
         findNavController().navigate(
             R.id.action_addPortalsFragment_to_portalsFragment
         )
+
+
     }
 }
