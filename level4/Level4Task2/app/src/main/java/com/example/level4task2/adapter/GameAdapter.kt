@@ -14,7 +14,6 @@ class GameAdapter (private val games: List<Game>):
             itemView.tvCardDate.text = game.gameDate.toString()
             itemView.ivCardComputerImage.setImageResource(game.computerChoice)
             itemView.ivCardPlayerImage.setImageResource(game.playerChoice)
-
         }
     }
 
