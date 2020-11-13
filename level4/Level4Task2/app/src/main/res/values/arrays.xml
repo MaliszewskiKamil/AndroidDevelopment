@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="game_images">
+        <item>@drawable/rock</item>
+        <item>@drawable/paper</item>
+        <item>@drawable/scissors</item>
+    </array>
+
+</resources>
