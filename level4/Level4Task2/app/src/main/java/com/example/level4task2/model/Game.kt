@@ -27,12 +27,4 @@ data class Game (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="id")
     var id: Long? = null
-) {
-
-companion object {
-    val GAME_IMAGES_IDS = arrayOf(
-        R.drawable.rock,
-        R.drawable.paper,
-        R.drawable.scissors
-    )
-}}
+)
