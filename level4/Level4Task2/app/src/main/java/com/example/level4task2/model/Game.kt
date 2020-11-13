@@ -1,8 +1,10 @@
 package com.example.level4task2.model
 
+import androidx.annotation.DrawableRes
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.level4task2.R
 import java.sql.Date
 import java.util.*
 
@@ -10,10 +12,10 @@ import java.util.*
 data class Game (
 
     @ColumnInfo
-    var playerChoice: Int,
+    @DrawableRes var playerChoice: Int,
 
     @ColumnInfo
-    var computerChoice: Int,
+    @DrawableRes var computerChoice: Int,
 
     @ColumnInfo
     var gameDate: Date,
@@ -21,5 +23,12 @@ data class Game (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="id")
     var id: Long? = null
+) {
 
-)
+companion object {
+    val GAME_IMAGES_IDS = arrayOf(
+        R.drawable.rock,
+        R.drawable.paper,
+        R.drawable.scissors
+    )
+}}
