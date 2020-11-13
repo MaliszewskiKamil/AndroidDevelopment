@@ -18,9 +18,10 @@ class GameAdapter (private val games: List<Game>):
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun databind(game: Game){
             itemView.tvCardTitle.text = game.result
-            //itemView.tvCardDate.text = game.gameDate
+            itemView.tvCardDate.text = game.gameDate.toString()
             itemView.ivCardComputerImage.setImageResource(game.computerChoice)
             itemView.ivCardPlayerImage.setImageResource(game.playerChoice)
+
         }
     }
 

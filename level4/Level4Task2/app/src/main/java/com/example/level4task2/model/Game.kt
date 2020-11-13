@@ -20,8 +20,8 @@ data class Game (
     @ColumnInfo
     var computerChoice: Int,
 
-    //@ColumnInfo
-    //var gameDate: String,
+    @ColumnInfo
+    var gameDate: Date,
 
 
     @PrimaryKey(autoGenerate = true)

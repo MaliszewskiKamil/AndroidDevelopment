@@ -6,7 +6,10 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.example.level4task2.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.ic_history_white_24dp));
+        toolbar.setNavigationOnClickListener {
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

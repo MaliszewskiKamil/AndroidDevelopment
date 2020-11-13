@@ -1,7 +1,7 @@
 package com.example.level4task2.tools
 
 import androidx.room.TypeConverter
-import java.util.*
+import java.sql.Date
 
 class Converters {
     @TypeConverter

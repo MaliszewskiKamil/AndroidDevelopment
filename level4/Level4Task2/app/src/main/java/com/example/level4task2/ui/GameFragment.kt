@@ -25,7 +25,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.sql.Date
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
 
@@ -68,9 +70,8 @@ class GameFragment : Fragment() {
         val computer = computerChoose()
         val results = checkResults(R.drawable.rock, computerChoose())
         updateUi(results)
-        //val date = converters.dateToTimestamp(getDate())
-
-            addGame(results, player, computer)
+        val dateSql = Date(System.currentTimeMillis())
+        addGame(results, player, computer, dateSql)
 
 
     }
@@ -127,12 +128,13 @@ class GameFragment : Fragment() {
         ivComputerImage.setImageResource(imageId)
     }
 
-    private fun addGame(result: String, player: Int, computer: Int ){
+    private fun addGame(result: String, player: Int, computer: Int, date: Date){
         mainScope.launch {
             val game = Game(
                 result = result,
                 playerChoice = player,
-                computerChoice = computer)
+                computerChoice = computer,
+                gameDate =  date)
             withContext(Dispatchers.IO){
                 gameRepository.insertGame(game)
             }
@@ -140,14 +142,14 @@ class GameFragment : Fragment() {
     }
 
 
-    private fun getDate(): String{
-        var strDate = "2020-07-10 04:00:00+0000"
-        var result: Date?
-        var dateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ")
-        dateFormatter.timeZone = TimeZone.getTimeZone("Asia/Jerusalem")
-        result = dateFormatter.parse(strDate)
-        return result.toString()
-    }
+//    private fun getDate(): String{
+//        var strDate = "2020-07-10 04:00:00+0000"
+//        var result: Date?
+//        var dateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ")
+//        dateFormatter.timeZone = TimeZone.getTimeZone("Asia/Jerusalem")
+//        result = dateFormatter.parse(strDate)
+//        return result.toString()
+//    }
 
 
 }
