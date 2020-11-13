@@ -1,5 +1,7 @@
 package com.example.level4task2.ui
 
+import android.annotation.SuppressLint
+import android.app.ActionBar
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -11,21 +13,22 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.example.level4task2.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.custom_toolbar.*
+import kotlinx.android.synthetic.main.fragment_history.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
 
+    @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
         navController = findNavController(R.id.nav_host_fragment)
         toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.ic_history_white_24dp));
-        toolbar.setNavigationOnClickListener {
-            navController.navigate(R.id.action_gameFragment_to_historyFragment)
-        }
+
 
     }
 

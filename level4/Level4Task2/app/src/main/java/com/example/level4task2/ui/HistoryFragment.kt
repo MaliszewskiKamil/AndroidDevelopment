@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,8 @@ import com.example.level4task2.R
 import com.example.level4task2.adapter.GameAdapter
 import com.example.level4task2.model.Game
 import com.example.level4task2.repository.GameRepository
+import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,6 +37,7 @@ class HistoryFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
@@ -43,22 +47,35 @@ class HistoryFragment : Fragment() {
         initView()
         gameRepository = GameRepository(requireContext())
 
+
+
+       // toolbar.setNavigationOnClickListener { removeAllGames() }
+
     }
 
     private fun initView() {
         rvHistory.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvHistory.adapter = gameAdapter
+        fabRemove.setOnClickListener {
+            removeAllGames()
+        }
+        fabBack.setOnClickListener {
+
+            findNavController().navigate(R.id.action_historyFragment_to_gameFragment)
+        }
         //rvHistory.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         getGamesFromDatabase()
     }
 
-    private fun removeAllProducts(){
+    private fun removeAllGames(){
         mainScope.launch {
             withContext(Dispatchers.IO){
                 gameRepository.deleteAllGames()
             }
+            getGamesFromDatabase()
         }
     }
+
 
     private fun getGamesFromDatabase() {
         mainScope.launch {

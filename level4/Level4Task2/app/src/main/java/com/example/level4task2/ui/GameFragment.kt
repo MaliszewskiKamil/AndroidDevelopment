@@ -18,6 +18,7 @@ import com.example.level4task2.adapter.GameAdapter
 import com.example.level4task2.model.Game
 import com.example.level4task2.repository.GameRepository
 import com.example.level4task2.tools.Converters
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_game.*
 import kotlinx.android.synthetic.main.fragment_game.view.*
 import kotlinx.android.synthetic.main.fragment_history.*
@@ -36,7 +37,6 @@ import java.util.*
  */
 class GameFragment : Fragment() {
 
-    private lateinit var converters: Converters
     private lateinit var gameRepository: GameRepository
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
@@ -47,6 +47,7 @@ class GameFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_game, container, false)
     }
 
@@ -60,6 +61,9 @@ class GameFragment : Fragment() {
         ivRock.setOnClickListener { onRockClick() }
         ivPaper.setOnClickListener { onPaperClick() }
         ivScissors.setOnClickListener { onScissorsClick() }
+        fabHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_gameFragment_to_historyFragment)
+        }
     }
 
 
@@ -70,21 +74,28 @@ class GameFragment : Fragment() {
         val results = checkResults(R.drawable.rock, computerChoose())
         updateUi(results)
         val dateSql = Date(System.currentTimeMillis())
+
         addGame(results, player, computer, dateSql)
-
-
-
     }
+
     private fun onPaperClick(){
+        val player = R.drawable.paper
         ivPlayerImage.setImageResource(R.drawable.paper)
+        val computer = computerChoose()
         val results = checkResults(R.drawable.paper, computerChoose())
         updateUi(results)
+        val dateSql = Date(System.currentTimeMillis())
+        addGame(results, player, computer, dateSql)
     }
+
     private fun onScissorsClick(){
+        val player = R.drawable.scissors
         ivPlayerImage.setImageResource(R.drawable.scissors)
+        val computer = computerChoose()
         val results = checkResults(R.drawable.scissors, computerChoose())
         updateUi(results)
-        findNavController().navigate(R.id.action_gameFragment_to_historyFragment)
+        val dateSql = Date(System.currentTimeMillis())
+        addGame(results, player, computer, dateSql)
 
     }
 

@@ -180,6 +180,18 @@
         app:srcCompat="@drawable/scissors"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/ivScissors"
+        app:layout_constraintStart_toStartOf="@id/ivScissors"
+        app:layout_constraintEnd_toEndOf="@id/ivScissors"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_history_white_24dp"
+        />
+
 
 
 
