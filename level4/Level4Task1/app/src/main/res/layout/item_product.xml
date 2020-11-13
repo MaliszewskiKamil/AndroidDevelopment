@@ -12,22 +12,17 @@
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/tvProductQuantity"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Meat"
-
-
         />
 
     <TextView
         android:id="@+id/tvProductQuantity"
-        android:layout_width="50dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:padding="12dp"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tvProductName"
-        android:text="2x"
-
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

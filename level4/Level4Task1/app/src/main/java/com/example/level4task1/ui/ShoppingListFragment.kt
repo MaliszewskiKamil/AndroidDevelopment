@@ -1,4 +1,4 @@
-package com.example.level4task1
+package com.example.level4task1.ui
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -8,20 +8,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.level4task1.R
 import com.example.level4task1.adapters.ShoppingListAdapter
 import com.example.level4task1.data.Product
 import com.example.level4task1.database.ProductRepository
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.add_product_dialog.*
 import kotlinx.android.synthetic.main.shopping_list_fragment.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -56,7 +52,19 @@ class ShoppingListFragment : Fragment() {
         fab_add.setOnClickListener{
             showAddProductDialog();
         }
+        fab_delete.setOnClickListener{
+            removeAllProducts()
+        }
 
+    }
+
+    private fun removeAllProducts() {
+        mainScope.launch {
+            withContext(Dispatchers.IO) {
+                productRepository.deleteAllProducts()
+            }
+            getProductsFromDatabase()
+        }
     }
 
     @SuppressLint("InflateParams")
