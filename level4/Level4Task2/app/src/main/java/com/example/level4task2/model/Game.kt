@@ -21,7 +21,7 @@ data class Game (
     @DrawableRes var computerChoice: Int,
 
     @ColumnInfo
-    var gameDate: Date?,
+    var gameDate: Long,
 
 
     @PrimaryKey(autoGenerate = true)

@@ -19,4 +19,5 @@
     <string name="wins">%1$s!</string>
     <string name="outcome">%1$s</string>
     <string name="date">%1$s</string>
+    <string name="letsplay">Let\'s play!</string>
 </resources>

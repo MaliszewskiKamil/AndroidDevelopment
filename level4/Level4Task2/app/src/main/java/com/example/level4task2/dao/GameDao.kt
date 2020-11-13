@@ -8,6 +8,7 @@ import com.example.level4task2.model.Game
 
 @Dao
 interface GameDao {
+
     @Query("SELECT * FROM gameTable")
     suspend fun getAllGames(): List<Game>
 

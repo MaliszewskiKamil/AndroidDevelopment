@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="@string/wins"
+        android:text="@string/letsplay"
         app:layout_constraintTop_toBottomOf="@id/tvStats"
         app:layout_constraintBottom_toTopOf="@id/tvVs"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,7 +156,7 @@
         android:id="@+id/ivPaper"
         android:layout_width="110dp"
         android:layout_height="80dp"
-        app:layout_constraintEnd_toStartOf="@id/tvScissors"
+        app:layout_constraintEnd_toStartOf="@id/ivScissors"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/ivRock"
         android:layout_marginBottom="8dp"
@@ -166,7 +166,7 @@
         app:srcCompat="@drawable/paper"
         />
     <ImageView
-        android:id="@+id/tvScissors"
+        android:id="@+id/ivScissors"
         android:layout_width="110dp"
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
