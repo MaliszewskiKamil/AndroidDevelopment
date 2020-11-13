@@ -12,9 +12,9 @@
     <string name="welcome">Welcome</string>
     <string name="subtitle">Instructions: select rock,paper or scissors to play.</string>
     <string name="statistics_top">Your all time statistics</string>
-    <string name="statistics">Win: %s Draw: %s Lose: %s</string>
+    <string name="statistics">Win: %1$s Draw: %2$s Lose: %3$s</string>
     <string name="vs">V.S.</string>
     <string name="computer">Computer</string>
     <string name="human">You</string>
-    <string name="wins">You %s!</string>
+    <string name="wins">You %1$s!</string>
 </resources>
