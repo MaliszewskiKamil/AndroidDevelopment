@@ -71,7 +71,7 @@ class GameFragment : Fragment() {
         val player = R.drawable.rock
         ivPlayerImage.setImageResource(R.drawable.rock)
         val computer = computerChoose()
-        val results = checkResults(R.drawable.rock, computerChoose())
+        val results = checkResults(R.drawable.rock, computer)
         updateUi(results)
         val dateSql = Date(System.currentTimeMillis())
 
@@ -82,7 +82,7 @@ class GameFragment : Fragment() {
         val player = R.drawable.paper
         ivPlayerImage.setImageResource(R.drawable.paper)
         val computer = computerChoose()
-        val results = checkResults(R.drawable.paper, computerChoose())
+        val results = checkResults(R.drawable.paper, computer)
         updateUi(results)
         val dateSql = Date(System.currentTimeMillis())
         addGame(results, player, computer, dateSql)
@@ -92,7 +92,7 @@ class GameFragment : Fragment() {
         val player = R.drawable.scissors
         ivPlayerImage.setImageResource(R.drawable.scissors)
         val computer = computerChoose()
-        val results = checkResults(R.drawable.scissors, computerChoose())
+        val results = checkResults(R.drawable.scissors, computer)
         updateUi(results)
         val dateSql = Date(System.currentTimeMillis())
         addGame(results, player, computer, dateSql)

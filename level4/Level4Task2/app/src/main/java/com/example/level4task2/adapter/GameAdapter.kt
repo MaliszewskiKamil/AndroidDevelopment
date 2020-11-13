@@ -10,7 +10,6 @@ import com.example.level4task2.model.Game
 import com.example.level4task2.tools.Converters
 import kotlinx.android.synthetic.main.item_history.view.*
 
-private lateinit var converters: Converters
 
 class GameAdapter (private val games: List<Game>):
         RecyclerView.Adapter<GameAdapter.ViewHolder>(){

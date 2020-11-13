@@ -45,7 +45,6 @@ class HistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-        gameRepository = GameRepository(requireContext())
 
 
 
@@ -56,6 +55,7 @@ class HistoryFragment : Fragment() {
     private fun initView() {
         rvHistory.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvHistory.adapter = gameAdapter
+        gameRepository = GameRepository(requireContext())
         fabRemove.setOnClickListener {
             removeAllGames()
         }
