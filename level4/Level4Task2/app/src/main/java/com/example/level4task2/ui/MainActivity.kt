@@ -1,26 +1,32 @@
 package com.example.level4task2.ui
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.example.level4task2.R
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+        navController = findNavController(R.id.nav_host_fragment)
         toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.ic_history_white_24dp));
         toolbar.setNavigationOnClickListener {
-
+            navController.navigate(R.id.action_gameFragment_to_historyFragment)
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

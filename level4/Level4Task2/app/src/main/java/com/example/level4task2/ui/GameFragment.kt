@@ -38,7 +38,6 @@ class GameFragment : Fragment() {
 
     private lateinit var converters: Converters
     private lateinit var gameRepository: GameRepository
-    private val games = arrayListOf<Game>()
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
 
@@ -74,6 +73,7 @@ class GameFragment : Fragment() {
         addGame(results, player, computer, dateSql)
 
 
+
     }
     private fun onPaperClick(){
         ivPlayerImage.setImageResource(R.drawable.paper)
@@ -84,6 +84,7 @@ class GameFragment : Fragment() {
         ivPlayerImage.setImageResource(R.drawable.scissors)
         val results = checkResults(R.drawable.scissors, computerChoose())
         updateUi(results)
+        findNavController().navigate(R.id.action_gameFragment_to_historyFragment)
 
     }
 
