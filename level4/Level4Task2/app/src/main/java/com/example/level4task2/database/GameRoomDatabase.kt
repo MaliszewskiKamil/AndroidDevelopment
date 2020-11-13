@@ -10,7 +10,7 @@ import com.example.level4task2.model.Game
 import com.example.level4task2.tools.Converters
 
 @Database(entities = [Game::class], version = 1, exportSchema = false)
-@TypeConverters(Converters::class)
+//@TypeConverters(Converters::class)
 abstract class GameRoomDatabase : RoomDatabase() {
 
     abstract fun gameDao(): GameDao

@@ -15,13 +15,13 @@ data class Game (
     var result: String,
 
     @ColumnInfo
-    @DrawableRes var playerChoice: Int,
+    var playerChoice: Int,
 
     @ColumnInfo
-    @DrawableRes var computerChoice: Int,
+    var computerChoice: Int,
 
-    @ColumnInfo
-    var gameDate: Long,
+    //@ColumnInfo
+    //var gameDate: String,
 
 
     @PrimaryKey(autoGenerate = true)

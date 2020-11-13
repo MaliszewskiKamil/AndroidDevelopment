@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,18 +17,29 @@ import com.example.level4task2.R
 import com.example.level4task2.adapter.GameAdapter
 import com.example.level4task2.model.Game
 import com.example.level4task2.repository.GameRepository
+import com.example.level4task2.tools.Converters
 import kotlinx.android.synthetic.main.fragment_game.*
 import kotlinx.android.synthetic.main.fragment_game.view.*
 import kotlinx.android.synthetic.main.fragment_history.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.util.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class GameFragment : Fragment() {
 
+    private lateinit var converters: Converters
     private lateinit var gameRepository: GameRepository
     private val games = arrayListOf<Game>()
-    private val gameAdapter = GameAdapter(games)
+    private val mainScope = CoroutineScope(Dispatchers.Main)
+
+
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +51,7 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        gameRepository = GameRepository(requireContext())
         initViews()
     }
 
@@ -50,19 +63,26 @@ class GameFragment : Fragment() {
 
 
     private fun onRockClick(){
+        val player = R.drawable.rock
         ivPlayerImage.setImageResource(R.drawable.rock)
-        checkResults(R.drawable.rock, computerChoose())
+        val computer = computerChoose()
         val results = checkResults(R.drawable.rock, computerChoose())
+        updateUi(results)
+        //val date = converters.dateToTimestamp(getDate())
+
+            addGame(results, player, computer)
+
+
     }
     private fun onPaperClick(){
         ivPlayerImage.setImageResource(R.drawable.paper)
-        checkResults(R.drawable.rock, computerChoose())
-        val results = checkResults(R.drawable.rock, computerChoose())
-
+        val results = checkResults(R.drawable.paper, computerChoose())
+        updateUi(results)
     }
     private fun onScissorsClick(){
         ivPlayerImage.setImageResource(R.drawable.scissors)
-        val results = checkResults(R.drawable.rock, computerChoose())
+        val results = checkResults(R.drawable.scissors, computerChoose())
+        updateUi(results)
 
     }
 
@@ -79,6 +99,10 @@ class GameFragment : Fragment() {
             "Draw"
         }
 
+    }
+
+    private fun updateUi(result: String){
+        tvWhoWins.text = result
     }
 
     private fun computerChoose(): Int{
@@ -101,6 +125,28 @@ class GameFragment : Fragment() {
 
     private fun changeComputerIcon(imageId: Int){
         ivComputerImage.setImageResource(imageId)
+    }
+
+    private fun addGame(result: String, player: Int, computer: Int ){
+        mainScope.launch {
+            val game = Game(
+                result = result,
+                playerChoice = player,
+                computerChoice = computer)
+            withContext(Dispatchers.IO){
+                gameRepository.insertGame(game)
+            }
+        }
+    }
+
+
+    private fun getDate(): String{
+        var strDate = "2020-07-10 04:00:00+0000"
+        var result: Date?
+        var dateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ")
+        dateFormatter.timeZone = TimeZone.getTimeZone("Asia/Jerusalem")
+        result = dateFormatter.parse(strDate)
+        return result.toString()
     }
 
 
